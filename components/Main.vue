@@ -43,11 +43,11 @@
               <button class="desk" @click="enableDeskVote(20)" :key="20" :temp="deskTemp(20)"></button>
             </div>
             <div class="inside__office-side">
-              <button class="desk" @click="enableDeskVote(21)" :key="21" :temp="deskTemp(22)"></button>
-              <button class="desk" @click="enableDeskVote(22)" :key="22" :temp="deskTemp(23)"></button>
-              <button class="desk" @click="enableDeskVote(23)" :key="23" :temp="deskTemp(24)"></button>
-              <button class="desk" @click="enableDeskVote(24)" :key="24" :temp="deskTemp(25)"></button>
-              <button class="desk" @click="enableDeskVote(25)" :key="25" :temp="deskTemp(26)"></button>
+              <button class="desk" @click="enableDeskVote(21)" :key="21" :temp="deskTemp(21)"></button>
+              <button class="desk" @click="enableDeskVote(22)" :key="22" :temp="deskTemp(22)"></button>
+              <button class="desk" @click="enableDeskVote(23)" :key="23" :temp="deskTemp(23)"></button>
+              <button class="desk" @click="enableDeskVote(24)" :key="24" :temp="deskTemp(24)"></button>
+              <button class="desk" @click="enableDeskVote(25)" :key="25" :temp="deskTemp(25)"></button>
             </div>
             <div class="inside__office-side">
               <button class="desk" @click="enableDeskVote(26)" :key="26" :temp="deskTemp(26)"></button>

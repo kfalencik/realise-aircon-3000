@@ -349,14 +349,14 @@
       width: 80px;
       height: 120px;
       position: absolute;
-      top: 45px;
+      top: 110px;
       left: 50%;
       transform: translateX(-50%);
 
       @media (max-width: $breakpoint-sm){
         width: 40px;
         height: 60px;
-
+        top: 45px;
       }
 
       &::after{

@@ -217,6 +217,13 @@
     overflow: hidden;
     padding-top: 50px;
 
+    @media (max-width: $breakpoint-sm){
+      border-bottom: 10px solid brown;
+      border-right: none;
+      height: 450px;
+      padding-top: 0;
+    }
+
     &__office-tv{
       width: 100px;
       height: 5px;
@@ -248,6 +255,10 @@
         align-items: center;
         justify-content: center;
 
+        @media (max-width: $breakpoint-sm){
+          height: 25px;
+        }
+
         &:hover{
           background-color: #eee;
         }
@@ -256,6 +267,10 @@
           background: #fff;
           padding: 10px 15px;
           border-radius: 10px;
+
+          @media (max-width: $breakpoint-sm){
+            display: none;
+          }
         }
 
         &:nth-child(5){
@@ -264,6 +279,10 @@
           left: calc(70% - 50px);
           height: calc(100% - 50px);
           background-position: center;
+
+          @media (max-width: $breakpoint-sm){
+            width: 25px;
+          }
 
           span{
             transform: rotate(-90deg);
@@ -303,15 +322,23 @@
       height: 120px;
       position: absolute;
       top: 680px;
-      left: calc(50% - 40px);
+      left: 50%;
+      transform: translateX(-50%);
       border: 2px solid rgb(255, 187, 0);
       overflow: hidden;
       cursor: pointer;
+
+      @media (max-width: $breakpoint-sm){
+        height: 60px;
+        width: 40px;
+        top: 345px;
+      }
 
       img{
         object-fit: cover;
         display: block;
         max-width: unset;
+        width: 110%;
       }
     }
 
@@ -322,8 +349,15 @@
       width: 80px;
       height: 120px;
       position: absolute;
-      top: 110px;
-      left: calc(50% - 40px);
+      top: 45px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @media (max-width: $breakpoint-sm){
+        width: 40px;
+        height: 60px;
+
+      }
 
       &::after{
         position: absolute;
@@ -340,14 +374,29 @@
         left: 18px;
         transform-origin: center;
         transition: all .3s linear;
+
+        @media (max-width: $breakpoint-sm){
+          height: 20px;
+          width: 20px;
+          left: 8px;
+          top: 20px;
+        }
       }
 
       &:nth-child(2){
         top: 300px;
+
+        @media (max-width: $breakpoint-sm){
+          top: 145px;
+        }
       }
 
       &:nth-child(3){
         top: 490px;
+
+        @media (max-width: $breakpoint-sm){
+          top: 245px;
+        }
       }
 
       &.active{
@@ -417,6 +466,11 @@
     background-size: 100%;
     height: 100vh;
     position: relative;
+
+    @media (max-width: $breakpoint-sm){
+      border-bottom: 10px solid brown;
+      border-left: none;
+    }
 
     &__temp-tint{
       width: 100%;

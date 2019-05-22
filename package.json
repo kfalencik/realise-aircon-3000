@@ -1,7 +1,7 @@
 {
   "name": "realise-aircon-3000",
   "version": "1.0.0",
-  "description": "How does that temperature feeling?",
+  "description": "How does that temperature feel?",
   "author": "kfalencik",
   "private": true,
   "scripts": {

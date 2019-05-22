@@ -188,6 +188,9 @@
         &[temp="cold"]{
           background-color: #a4eaff;
         }
+        &[temp="good"]{
+          background-color: #a4ffb3;
+        }
         &[temp="hot"]{
           background-color: rgb(255, 147, 141);
         }

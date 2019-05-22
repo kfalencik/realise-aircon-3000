@@ -15,6 +15,7 @@
             </div>
           </div>
           <div class="inside__wrapper">
+
             <div class="inside__office-side">
               <button class="desk" @click="enableDeskVote(1)" :key="1" :temp="deskTemp(1)" :title="deskName(1)"><span>{{deskName(1)}}</span></button>
               <button class="desk" @click="enableDeskVote(2)" :key="2" :temp="deskTemp(2)" :title="deskName(2)"><span>{{deskName(2)}}</span></button>
@@ -71,6 +72,8 @@
               <button class="desk" @click="enableDeskVote(39)" :key="39" :temp="deskTemp(39)" :title="deskName(39)"><span>{{deskName(39)}}</span></button>
               <button class="desk" @click="enableDeskVote(40)" :key="40" :temp="deskTemp(40)" :title="deskName(40)"><span>{{deskName(40)}}</span></button>
             </div>
+
+            <div class="inside__office-tv"></div>
 
             <div class="inside__aircons">
               <div @click="updateAircon('aircon1', !aircon1)" :class="{'aircon': true, 'active': aircon1}"></div>
@@ -189,6 +192,17 @@
     border-right: 10px solid brown;
     overflow: hidden;
     padding-top: 50px;
+
+    &__office-tv{
+      width: 100px;
+      height: 5px;
+      background: #999;
+      box-shadow: 0 0 10px rgba(255,255,255,0.8);
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
 
     &__office-side{
       width: 50%;

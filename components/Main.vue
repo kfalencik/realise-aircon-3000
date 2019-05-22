@@ -79,6 +79,7 @@
               <div @click="updateAircon('aircon1', !aircon1)" :class="{'aircon': true, 'active': aircon1}"></div>
               <div @click="updateAircon('aircon2', !aircon2)" :class="{'aircon': true, 'active': aircon2}"></div>
               <div @click="updateAircon('aircon3', !aircon3)" :class="{'aircon': true, 'active': aircon3}"></div>
+              <div @click="bark" class="monty"><img src="~assets/img/monty.jpg"></div>
             </div>
           </div>
         </div>
@@ -91,6 +92,10 @@
         </div>
       </div>
     </div>
+
+    <audio controls>
+      <source src="bark.mp3" type="audio/mp3">
+    </audio>
   </section>
 </template>
 
@@ -131,6 +136,10 @@
       }
     },
     methods: {
+      bark: function(){
+        var audio = document.querySelector('audio');
+        audio.play();
+      },
       updateAircon: function(aircon, value){
         this.$store.commit('updateAircon', [aircon, value]);
       },
@@ -274,6 +283,23 @@
       }
     }
 
+    .monty{
+      width: 80px;
+      height: 120px;
+      position: absolute;
+      top: 680px;
+      left: calc(50% - 40px);
+      border: 2px solid rgb(255, 187, 0);
+      overflow: hidden;
+      cursor: pointer;
+
+      img{
+        object-fit: cover;
+        display: block;
+        max-width: unset;
+      }
+    }
+
     .aircon{
       border: 2px solid #eee;
       background: #666;
@@ -402,5 +428,9 @@
       top: calc(50% - 75px);
       left: calc(50% - 75px);
     }
+  }
+
+  audio{
+    display: none;
   }
 </style>

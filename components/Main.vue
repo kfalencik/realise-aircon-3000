@@ -87,7 +87,19 @@
         <div class="outside col-lg-4 col-xs-12">
           <div class="outside__temp-tint" :style="'background: ' + tempColour"></div>
           <div class="outside__wrapper">
-            <div class="outside__temperature">{{ currentTemp }}°C</div>
+            <div class="outside__temperature">
+              <span>{{ currentTemp }}°C</span>
+
+              <div class="outside__icon">
+                <img src="~assets/img/clouds.png" v-if="weatherIcon == 'Clouds'" />
+                <img src="~assets/img/clear.png" v-if="weatherIcon == 'Clear'" />
+                <img src="~assets/img/snow.png" v-if="weatherIcon == 'Snow'" />
+                <img src="~assets/img/rain.png" v-if="weatherIcon == 'Rain'" />
+                <img src="~assets/img/drizzle.png" v-if="weatherIcon == 'Drizzle'" />
+                <img src="~assets/img/thunderstorm.png" v-if="weatherIcon == 'Thunderstorm'" />
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -112,6 +124,9 @@
       },
       currentTemp () {
         return this.$store.state.currentTemp;
+      },
+      weatherIcon () {
+        return this.$store.state.weatherIcon;
       },
       tempColour () {
         return this.$store.state.tempColour;
@@ -427,6 +442,22 @@
       position: absolute;
       top: calc(50% - 75px);
       left: calc(50% - 75px);
+      z-index: 6;
+
+      span{
+        position: relative;
+        z-index: 10;
+      }
+    }
+
+    &__icon{
+      position: absolute;
+      z-index: 8;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 125px;
+      height: 125px;
     }
   }
 

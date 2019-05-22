@@ -16,6 +16,7 @@ export const state = () => ({
   aircon2: false,
   aircon3: false,
   currentTemp: 0,
+  weatherIcon: null,
   tempColour: false,
   currentDate: null,
   votingOverlay: false,
@@ -127,6 +128,8 @@ export const actions = {
     .then(function(data) {
       var celcius = Math.round(parseFloat(data.main.temp)-273.15);
       commit('setValue', ['currentTemp', celcius]);
+
+      commit('setValue', ['weatherIcon', data.weather[0].main]);
 
       let colour = '#00c4ff';
 

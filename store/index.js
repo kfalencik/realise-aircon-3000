@@ -19,8 +19,10 @@ export const state = () => ({
   tempColour: false,
   currentDate: null,
   votingOverlay: false,
+  currentDeskName: '',
   votingDesk: 0,
-  votes: []
+  votes: [],
+  desks: []
 })
 
 export const mutations = {
@@ -30,6 +32,20 @@ export const mutations = {
   updateAircon(state, data) {
     firebase.firestore().collection('aircons').doc('aircons').update({
       [data[0]]: data[1]
+    });
+  },
+  updateName(state, data) {
+    state.currentDeskName = data;
+    let desks = firebase.firestore().collection('desks');
+    desks.get().then(function(querySnapshoter) {
+      querySnapshoter.forEach(function(doc) {
+        let deskData = doc.data();
+        if(parseInt(deskData.desk) == state.votingDesk){
+          doc.ref.update({
+            name: data
+          })
+        }
+      });
     });
   },
   addVote: function (state, data){
@@ -81,14 +97,28 @@ export const actions = {
     db.collection("votes").where('date', '==', context.state.currentDate).onSnapshot(snapshot => {
       const votes = [];
 
-      snapshot.forEach(listing => {
-        let data = listing.data();
+      snapshot.forEach(vote => {
+        let data = vote.data();
         votes.push({
           desk: data.desk,
           temperature: data.temperature
         });
       });
       context.commit("setValue", ['votes', votes]);
+    });
+
+    // Get desk names
+    db.collection("desks").onSnapshot(snapshot => {
+      const desks = [];
+
+      snapshot.forEach(desk => {
+        let data = desk.data();
+        desks.push({
+          desk: data.desk,
+          name: data.name
+        });
+      });
+      context.commit("setValue", ['desks', desks]);
     });
   },
   async weatherBalloon ({ commit }) {

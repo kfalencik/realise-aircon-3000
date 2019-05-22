@@ -470,6 +470,7 @@
     @media (max-width: $breakpoint-sm){
       border-bottom: 10px solid brown;
       border-left: none;
+      height: 480px;
     }
 
     &__temp-tint{

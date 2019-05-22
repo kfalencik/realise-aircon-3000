@@ -16,60 +16,60 @@
           </div>
           <div class="inside__wrapper">
             <div class="inside__office-side">
-              <button class="desk" @click="enableDeskVote(1)" :key="1" :temp="deskTemp(1)" :title="deskName(1)"></button>
-              <button class="desk" @click="enableDeskVote(2)" :key="2" :temp="deskTemp(2)" :title="deskName(2)"></button>
-              <button class="desk" @click="enableDeskVote(3)" :key="3" :temp="deskTemp(3)" :title="deskName(3)"></button>
-              <button class="desk" @click="enableDeskVote(4)" :key="4" :temp="deskTemp(4)" :title="deskName(4)"></button>
-              <button class="desk" @click="enableDeskVote(5)" :key="5" :temp="deskTemp(5)" :title="deskName(5)"></button>
+              <button class="desk" @click="enableDeskVote(1)" :key="1" :temp="deskTemp(1)" :title="deskName(1)"><span>{{deskName(1)}}</span></button>
+              <button class="desk" @click="enableDeskVote(2)" :key="2" :temp="deskTemp(2)" :title="deskName(2)"><span>{{deskName(2)}}</span></button>
+              <button class="desk" @click="enableDeskVote(3)" :key="3" :temp="deskTemp(3)" :title="deskName(3)"><span>{{deskName(3)}}</span></button>
+              <button class="desk" @click="enableDeskVote(4)" :key="4" :temp="deskTemp(4)" :title="deskName(4)"><span>{{deskName(4)}}</span></button>
+              <button class="desk" @click="enableDeskVote(5)" :key="5" :temp="deskTemp(5)" :title="deskName(5)"><span>{{deskName(5)}}</span></button>
             </div>
             <div class="inside__office-side">
-              <button class="desk" @click="enableDeskVote(6)" :key="6" :temp="deskTemp(6)" :title="deskName(6)"></button>
-              <button class="desk" @click="enableDeskVote(7)" :key="7" :temp="deskTemp(7)" :title="deskName(7)"></button>
-              <button class="desk" @click="enableDeskVote(8)" :key="8" :temp="deskTemp(8)" :title="deskName(8)"></button>
-              <button class="desk" @click="enableDeskVote(9)" :key="9" :temp="deskTemp(9)" :title="deskName(9)"></button>
-              <button class="desk" @click="enableDeskVote(10)" :key="10" :temp="deskTemp(10)" :title="deskName(10)"></button>
+              <button class="desk" @click="enableDeskVote(6)" :key="6" :temp="deskTemp(6)" :title="deskName(6)"><span>{{deskName(6)}}</span></button>
+              <button class="desk" @click="enableDeskVote(7)" :key="7" :temp="deskTemp(7)" :title="deskName(7)"><span>{{deskName(7)}}</span></button>
+              <button class="desk" @click="enableDeskVote(8)" :key="8" :temp="deskTemp(8)" :title="deskName(8)"><span>{{deskName(8)}}</span></button>
+              <button class="desk" @click="enableDeskVote(9)" :key="9" :temp="deskTemp(9)" :title="deskName(9)"><span>{{deskName(9)}}</span></button>
+              <button class="desk" @click="enableDeskVote(10)" :key="10" :temp="deskTemp(10)" :title="deskName(10)"><span>{{deskName(10)}}</span></button>
             </div>
             <div class="inside__office-side">
-              <button class="desk" @click="enableDeskVote(11)" :key="11" :temp="deskTemp(11)" :title="deskName(11)"></button>
-              <button class="desk" @click="enableDeskVote(12)" :key="12" :temp="deskTemp(12)" :title="deskName(12)"></button>
-              <button class="desk" @click="enableDeskVote(13)" :key="13" :temp="deskTemp(13)" :title="deskName(13)"></button>
-              <button class="desk" @click="enableDeskVote(14)" :key="14" :temp="deskTemp(14)" :title="deskName(14)"></button>
-              <button class="desk" @click="enableDeskVote(15)" :key="15" :temp="deskTemp(15)" :title="deskName(15)"></button>
+              <button class="desk" @click="enableDeskVote(11)" :key="11" :temp="deskTemp(11)" :title="deskName(11)"><span>{{deskName(11)}}</span></button>
+              <button class="desk" @click="enableDeskVote(12)" :key="12" :temp="deskTemp(12)" :title="deskName(12)"><span>{{deskName(12)}}</span></button>
+              <button class="desk" @click="enableDeskVote(13)" :key="13" :temp="deskTemp(13)" :title="deskName(13)"><span>{{deskName(13)}}</span></button>
+              <button class="desk" @click="enableDeskVote(14)" :key="14" :temp="deskTemp(14)" :title="deskName(14)"><span>{{deskName(14)}}</span></button>
+              <button class="desk" @click="enableDeskVote(15)" :key="15" :temp="deskTemp(15)" :title="deskName(15)"><span>{{deskName(15)}}</span></button>
             </div>
             <div class="inside__office-side">
-              <button class="desk" @click="enableDeskVote(16)" :key="16" :temp="deskTemp(16)" :title="deskName(16)"></button>
-              <button class="desk" @click="enableDeskVote(17)" :key="17" :temp="deskTemp(17)" :title="deskName(17)"></button>
-              <button class="desk" @click="enableDeskVote(18)" :key="18" :temp="deskTemp(18)" :title="deskName(18)"></button>
-              <button class="desk" @click="enableDeskVote(19)" :key="19" :temp="deskTemp(19)" :title="deskName(19)"></button>
-              <button class="desk" @click="enableDeskVote(20)" :key="20" :temp="deskTemp(20)" :title="deskName(20)"></button>
+              <button class="desk" @click="enableDeskVote(16)" :key="16" :temp="deskTemp(16)" :title="deskName(16)"><span>{{deskName(16)}}</span></button>
+              <button class="desk" @click="enableDeskVote(17)" :key="17" :temp="deskTemp(17)" :title="deskName(17)"><span>{{deskName(17)}}</span></button>
+              <button class="desk" @click="enableDeskVote(18)" :key="18" :temp="deskTemp(18)" :title="deskName(18)"><span>{{deskName(18)}}</span></button>
+              <button class="desk" @click="enableDeskVote(19)" :key="19" :temp="deskTemp(19)" :title="deskName(19)"><span>{{deskName(19)}}</span></button>
+              <button class="desk" @click="enableDeskVote(20)" :key="20" :temp="deskTemp(20)" :title="deskName(20)"><span>{{deskName(20)}}</span></button>
             </div>
             <div class="inside__office-side">
-              <button class="desk" @click="enableDeskVote(21)" :key="21" :temp="deskTemp(21)" :title="deskName(21)"></button>
-              <button class="desk" @click="enableDeskVote(22)" :key="22" :temp="deskTemp(22)" :title="deskName(22)"></button>
-              <button class="desk" @click="enableDeskVote(23)" :key="23" :temp="deskTemp(23)" :title="deskName(23)"></button>
-              <button class="desk" @click="enableDeskVote(24)" :key="24" :temp="deskTemp(24)" :title="deskName(24)"></button>
-              <button class="desk" @click="enableDeskVote(25)" :key="25" :temp="deskTemp(25)" :title="deskName(25)"></button>
+              <button class="desk" @click="enableDeskVote(21)" :key="21" :temp="deskTemp(21)" :title="deskName(21)"><span>{{deskName(21)}}</span></button>
+              <button class="desk" @click="enableDeskVote(22)" :key="22" :temp="deskTemp(22)" :title="deskName(22)"><span>{{deskName(22)}}</span></button>
+              <button class="desk" @click="enableDeskVote(23)" :key="23" :temp="deskTemp(23)" :title="deskName(23)"><span>{{deskName(23)}}</span></button>
+              <button class="desk" @click="enableDeskVote(24)" :key="24" :temp="deskTemp(24)" :title="deskName(24)"><span>{{deskName(24)}}</span></button>
+              <button class="desk" @click="enableDeskVote(25)" :key="25" :temp="deskTemp(25)" :title="deskName(25)"><span>{{deskName(25)}}</span></button>
             </div>
             <div class="inside__office-side">
-              <button class="desk" @click="enableDeskVote(26)" :key="26" :temp="deskTemp(26)" :title="deskName(26)"></button>
-              <button class="desk" @click="enableDeskVote(27)" :key="27" :temp="deskTemp(27)" :title="deskName(27)"></button>
-              <button class="desk" @click="enableDeskVote(28)" :key="28" :temp="deskTemp(28)" :title="deskName(28)"></button>
-              <button class="desk" @click="enableDeskVote(29)" :key="29" :temp="deskTemp(29)" :title="deskName(29)"></button>
-              <button class="desk" @click="enableDeskVote(30)" :key="30" :temp="deskTemp(30)" :title="deskName(30)"></button>
+              <button class="desk" @click="enableDeskVote(26)" :key="26" :temp="deskTemp(26)" :title="deskName(26)"><span>{{deskName(26)}}</span></button>
+              <button class="desk" @click="enableDeskVote(27)" :key="27" :temp="deskTemp(27)" :title="deskName(27)"><span>{{deskName(27)}}</span></button>
+              <button class="desk" @click="enableDeskVote(28)" :key="28" :temp="deskTemp(28)" :title="deskName(28)"><span>{{deskName(28)}}</span></button>
+              <button class="desk" @click="enableDeskVote(29)" :key="29" :temp="deskTemp(29)" :title="deskName(29)"><span>{{deskName(29)}}</span></button>
+              <button class="desk" @click="enableDeskVote(30)" :key="30" :temp="deskTemp(30)" :title="deskName(30)"><span>{{deskName(30)}}</span></button>
             </div>
             <div class="inside__office-side">
-              <button class="desk" @click="enableDeskVote(31)" :key="31" :temp="deskTemp(31)" :title="deskName(31)"></button>
-              <button class="desk" @click="enableDeskVote(32)" :key="32" :temp="deskTemp(32)" :title="deskName(32)"></button>
-              <button class="desk" @click="enableDeskVote(33)" :key="33" :temp="deskTemp(33)" :title="deskName(33)"></button>
-              <button class="desk" @click="enableDeskVote(34)" :key="34" :temp="deskTemp(34)" :title="deskName(34)"></button>
-              <button class="desk" @click="enableDeskVote(35)" :key="35" :temp="deskTemp(35)" :title="deskName(35)"></button>
+              <button class="desk" @click="enableDeskVote(31)" :key="31" :temp="deskTemp(31)" :title="deskName(31)"><span>{{deskName(31)}}</span></button>
+              <button class="desk" @click="enableDeskVote(32)" :key="32" :temp="deskTemp(32)" :title="deskName(32)"><span>{{deskName(32)}}</span></button>
+              <button class="desk" @click="enableDeskVote(33)" :key="33" :temp="deskTemp(33)" :title="deskName(33)"><span>{{deskName(33)}}</span></button>
+              <button class="desk" @click="enableDeskVote(34)" :key="34" :temp="deskTemp(34)" :title="deskName(34)"><span>{{deskName(34)}}</span></button>
+              <button class="desk" @click="enableDeskVote(35)" :key="35" :temp="deskTemp(35)" :title="deskName(35)"><span>{{deskName(35)}}</span></button>
             </div>
             <div class="inside__office-side">
-              <button class="desk" @click="enableDeskVote(36)" :key="36" :temp="deskTemp(36)" :title="deskName(36)"></button>
-              <button class="desk" @click="enableDeskVote(37)" :key="37" :temp="deskTemp(37)" :title="deskName(37)"></button>
-              <button class="desk" @click="enableDeskVote(38)" :key="38" :temp="deskTemp(38)" :title="deskName(38)"></button>
-              <button class="desk" @click="enableDeskVote(39)" :key="39" :temp="deskTemp(39)" :title="deskName(39)"></button>
-              <button class="desk" @click="enableDeskVote(40)" :key="40" :temp="deskTemp(40)" :title="deskName(40)"></button>
+              <button class="desk" @click="enableDeskVote(36)" :key="36" :temp="deskTemp(36)" :title="deskName(36)"><span>{{deskName(36)}}</span></button>
+              <button class="desk" @click="enableDeskVote(37)" :key="37" :temp="deskTemp(37)" :title="deskName(37)"><span>{{deskName(37)}}</span></button>
+              <button class="desk" @click="enableDeskVote(38)" :key="38" :temp="deskTemp(38)" :title="deskName(38)"><span>{{deskName(38)}}</span></button>
+              <button class="desk" @click="enableDeskVote(39)" :key="39" :temp="deskTemp(39)" :title="deskName(39)"><span>{{deskName(39)}}</span></button>
+              <button class="desk" @click="enableDeskVote(40)" :key="40" :temp="deskTemp(40)" :title="deskName(40)"><span>{{deskName(40)}}</span></button>
             </div>
 
             <div class="inside__aircons">
@@ -199,15 +199,25 @@
       .desk{
         width: 35%;
         height: 70px;
-        background: url(~assets/img/pc.png) no-repeat 20px center #fff;
+        background: #fff;
         background-size: 50px;
         border-radius: 5px;
         border: 2px solid #666;
         float: left;
         cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover{
           background-color: #eee;
+        }
+
+        span{
+          background: #fff;
+          padding: 10px 15px;
+          border-radius: 10px;
         }
 
         &:nth-child(5){
@@ -216,6 +226,10 @@
           left: calc(70% - 50px);
           height: calc(100% - 50px);
           background-position: center;
+
+          span{
+            transform: rotate(-90deg);
+          }
         }
 
         &[temp="cold"]{

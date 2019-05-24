@@ -129,7 +129,15 @@ export const actions = {
       var celcius = Math.round(parseFloat(data.main.temp)-273.15);
       commit('setValue', ['currentTemp', celcius]);
 
-      commit('setValue', ['weatherIcon', data.weather[0].main]);
+      let weatherIcon = data.weather[0].main;
+
+      const currentDate = new Date();
+
+      if(currentDate.getDay() == 5 && currentDate.getHours() >= 16){
+        weatherIcon = "Beer";
+      }
+
+      commit('setValue', ['weatherIcon', weatherIcon]);
 
       let colour = '#00c4ff';
 

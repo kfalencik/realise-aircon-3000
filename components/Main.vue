@@ -97,6 +97,7 @@
                 <img src="~assets/img/rain.png" v-if="weatherIcon == 'Rain'" />
                 <img src="~assets/img/drizzle.png" v-if="weatherIcon == 'Drizzle'" />
                 <img src="~assets/img/thunderstorm.png" v-if="weatherIcon == 'Thunderstorm'" />
+                <img src="~assets/img/beer.png" v-if="weatherIcon == 'Beer'" />
               </div>
             </div>
 

@@ -16,7 +16,7 @@ export const state = () => ({
   aircon2: false,
   aircon3: false,
   currentTemp: 0,
-  weatherIcon: null,
+  weatherIcon: '',
   tempColour: false,
   currentDate: null,
   votingOverlay: false,

@@ -106,6 +106,8 @@
       </div>
     </div>
 
+    <canvas></canvas>
+
     <audio controls>
       <source src="bark.mp3" type="audio/mp3">
     </audio>
@@ -118,6 +120,8 @@
       return{
 
       }
+    },
+    mounted() {
     },
     computed: {
       votes (){
@@ -204,6 +208,120 @@
       changeName: function(event){
         this.$store.commit('updateName', event.target.value);
       }
+    },
+    watch: {
+      weatherIcon (){
+        if(this.weatherIcon == 'Beer') {
+          let canvas = document.querySelector('canvas');
+          let ctx = canvas.getContext('2d');
+
+          canvas.width = document.body.clientWidth;
+          canvas.height = document.body.clientHeight;
+
+          let centerX = canvas.width / 2;
+          let centerY = canvas.height / 2;
+          let offsetX = 0;
+          let mouseX = 0;
+          let mouseDown = false;
+          let time;
+          let beerImg = document.createElement('img');
+          let beer = {
+            img: beerImg,
+            width: 0,
+            height: 0,
+            x: centerX,
+            y: centerY
+          };
+
+          let beers = [];
+          let count = document.body.clientWidth < 424 ? 1 : 20;
+
+          function addbeer(x, y, w) {
+            beers.push({
+              x: x,
+              y: y,
+              w: w,
+              h: Math.ceil(w * beer.height / beer.width),
+              v: w * 0.003,
+              r: 0
+            });
+
+            console.log(beers);
+          }
+
+          function update(dt) {
+            for(let i = 0; i < beers.length; i++) {
+              beers[i].y += dt * beers[i].v + i * 0.003;
+              beers[i].x = beers[i].x + (offsetX * beers[i].v * 0.1);
+              //beers[i].r += Math.sin(dt + 0.04) * 0.01;
+
+              if (mouseDown) {
+                offsetX = mouseX - centerX;
+              }
+
+              if (beers[i].y > canvas.height) {
+                beers[i].x = Math.random() * canvas.width;
+                beers[i].y = -beers[i].h;
+              }
+            }
+          }
+
+          function draw() {
+            requestAnimationFrame(draw);
+
+            let now = new Date().getTime();
+            let dt = now - (time || now);
+            time = now;
+            update(dt);
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < beers.length; i++) {
+              if (beers[i].x < canvas.width && beers[i].y < canvas.height) {
+                ctx.save()
+                ctx.translate(beers[i].x, beers[i].y);
+                ctx.rotate(beers[i].r);
+                ctx.drawImage(
+                  beer.img,
+                  -beers[i].w / 2,
+                  0,
+                  beers[i].w,
+                  beers[i].h,
+                );
+                ctx.translate(-beers[i].x,-beers[i].y);
+                ctx.restore()
+              }
+            }
+          }
+
+          beer.img.src = 'beer1.png';
+
+          beer.img.onload = function() {
+            beer.width = beer.img.width / 2;
+            beer.height = beer.img.height / 2;
+            beer.x = centerX - beer.width / 2;
+            beer.y = centerY - beer.height / 2;
+
+            for (let i = 0; i < count; i++) {
+              addbeer(
+                Math.random() * canvas.width,
+                Math.random() * canvas.height,
+                (beer.width * 0.3) + Math.random() * (beer.width * 0.5)
+              )
+            }
+
+            for (let i = 0; i < count; i++) {
+              addbeer(
+                Math.random() * canvas.width,
+                Math.random() * canvas.height,
+                (beer.width * 0.3) + Math.random() * (beer.width * 0.5)
+              )
+            }
+
+            draw();
+          }
+        }
+      }
     }
   }
 </script>
@@ -255,6 +373,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        z-index: 20;
 
         @media (max-width: $breakpoint-sm){
           height: 25px;
@@ -328,6 +447,7 @@
       border: 2px solid rgb(255, 187, 0);
       overflow: hidden;
       cursor: pointer;
+      z-index: 20;
 
       @media (max-width: $breakpoint-sm){
         height: 60px;
@@ -353,6 +473,7 @@
       top: 110px;
       left: 50%;
       transform: translateX(-50%);
+      z-index: 20;
 
       @media (max-width: $breakpoint-sm){
         width: 40px;
@@ -519,5 +640,15 @@
 
   audio{
     display: none;
+  }
+
+  canvas{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
   }
 </style>

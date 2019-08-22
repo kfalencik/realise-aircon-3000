@@ -1,6 +1,6 @@
 # realise-aircon-3000
 
-> Quality Tratidional Tattoo Apparel
+> Air conditioner control system
 
 ## Build Setup
 

@@ -56,14 +56,14 @@ export default {
 
   styleResources: {
     scss: [
-        'assets/css/common/mixins/_breakpoints.scss',
-        'assets/css/common/_mixins.scss',
-        'assets/css/common/_colours.scss',
-        'assets/css/common/_buttons.scss',
-        'assets/css/common/_fonts.scss',
-        'assets/css/common/_grid.scss',
-        'assets/css/common/_typography.scss',
-        'assets/css/common/_utility-classes.scss'
+        '@/assets/css/common/mixins/_breakpoints.scss',
+        '@/assets/css/common/_mixins.scss',
+        '@/assets/css/common/_colours.scss',
+        '@/assets/css/common/_buttons.scss',
+        '@/assets/css/common/_fonts.scss',
+        '@/assets/css/common/_grid.scss',
+        '@/assets/css/common/_typography.scss',
+        '@/assets/css/common/_utility-classes.scss'
     ]
   },
 

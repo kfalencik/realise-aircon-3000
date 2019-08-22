@@ -1,7 +1,7 @@
 <template>
   <div v-if="votingOverlay" class="voting-overlay">
     <div class="voting-overlay__wrapper">
-      <input type="text" :value="currentDeskName" @keyup="changeName" placeholder="Type in your name" />
+      <input type="text" :value="currentDeskName" @keyup="changeName" placeholder="Type in your name" autofocus />
       <p>How is the temperature?</p>
       <div class="voting-overlay__options">
         <button class="btn" @click="addVote('cold')">Too cold</button>

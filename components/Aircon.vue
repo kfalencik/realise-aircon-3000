@@ -1,5 +1,5 @@
 <template>
-  <div @click="updateAircon(airconNumber, !aircon)" :class="{'aircon': true, 'active': aircon}"></div>
+  <button @click="updateAircon(airconNumber, !aircon)" :class="{'aircon': true, 'active': aircon}"></button>
 </template>
 
 <script>

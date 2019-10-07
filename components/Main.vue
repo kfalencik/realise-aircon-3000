@@ -34,11 +34,20 @@
 
             <div class="inside__office-tv"></div>
 
+
+
             <div class="inside__aircons">
               <Aircon airconNumber="aircon1"></Aircon>
               <Aircon airconNumber="aircon2"></Aircon>
               <Aircon airconNumber="aircon3"></Aircon>
-              <div @click="bark" class="monty"><img src="~assets/img/monty.jpg"></div>
+            </div>
+
+            <div class="inside__heating">
+              <span><input type="text" @keyup="updateHeating('input', $event)" :value="centralHeating" />°C</span>
+              <div class="inside__heating-controls">
+                <i class="fas fa-caret-up" @click="updateHeating(centralHeating + 1)"></i>
+                <i class="fas fa-caret-down" @click="updateHeating(centralHeating - 1)"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -93,12 +102,20 @@
       },
       tempColour () {
         return this.$store.state.tempColour;
+      },
+      centralHeating () {
+        return this.$store.state.centralHeating;
       }
     },
     methods: {
-      bark: function(){
-        var audio = document.querySelector('audio');
-        audio.play();
+      updateHeating: function(value, event) {
+        if (value === 'input') {
+          value = parseInt(event.target.value);
+        }
+
+        if (value > 0 && value < 50) {
+          this.$store.commit('updateHeating', value);
+        }
       }
     },
     watch: {
@@ -269,29 +286,50 @@
     }
   }
 
-  .monty {
-    width: 80px;
-    height: 120px;
+  &__heating {
+    border: 2px solid #666;
+    background: #eee;
+    width: 120px;
+    height: 75px;
     position: absolute;
-    top: 680px;
+    top: 700px;
     left: 50%;
     transform: translateX(-50%);
-    border: 2px solid rgb(255, 187, 0);
-    overflow: hidden;
-    cursor: pointer;
     z-index: 20;
 
-    @media (max-width: $breakpoint-sm) {
-      height: 60px;
-      width: 40px;
-      top: 345px;
+    &::after {
+      background: #666;
+      width: 25px;
+      height: 25px;
+      border-radius: 100%;
+      display: block;
+      content: '';
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
     }
 
-    img {
-      object-fit: cover;
-      display: block;
-      max-width: unset;
-      width: 110%;
+    &-controls {
+      margin-left: 10px;
+      margin-top: 5px;
+    }
+
+    span {
+      border: 2px solid #666;
+      background: #7bbede;
+      float: right;
+      color: #eee;
+      margin: 10px;
+      padding: 5px 10px;
+
+      input {
+        display: inline-block;
+        background: none;
+        border: none;
+        color: #fff;
+        width: 20px;
+        font-size: inherit;
+      }
     }
   }
 }

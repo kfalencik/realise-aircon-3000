@@ -23,7 +23,6 @@ export default {
 .aircon{
   border: 2px solid #eee;
   background: #666;
-  background-size: 100%;
   width: 80px;
   height: 120px;
   position: absolute;

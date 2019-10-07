@@ -16,6 +16,7 @@ export const state = () => ({
   aircon2: false,
   aircon3: false,
   currentTemp: 0,
+  centralHeating: 0,
   weatherIcon: '',
   tempColour: false,
   currentDate: null,
@@ -33,6 +34,11 @@ export const mutations = {
   updateAircon(state, data) {
     firebase.firestore().collection('aircons').doc('aircons').update({
       [data[0]]: data[1]
+    });
+  },
+  updateHeating(state, data) {
+    firebase.firestore().collection('centralheating').doc('centralheating').update({
+      temp: data
     });
   },
   updateName(state, data) {
@@ -92,6 +98,14 @@ export const actions = {
       context.commit("setValue", ['aircon1', aircon1]);
       context.commit("setValue", ['aircon2', aircon2]);
       context.commit("setValue", ['aircon3', aircon3]);
+    });
+
+    // Get central heating data
+    db.collection("centralheating").doc("centralheating").onSnapshot(app => {
+      let data = app.data();
+      let centralHeating = data.temp;
+
+      context.commit("setValue", ['centralHeating', centralHeating]);
     });
 
     // Set todays votes

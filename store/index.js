@@ -60,9 +60,8 @@ export const mutations = {
     votings.get().then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
         doc.ref.delete();
+        firebase.firestore().collection('votes').add(vote);
       });
-
-      firebase.firestore().collection('votes').add(vote);
     });
 
     state.votingOverlay = false;
@@ -72,11 +71,12 @@ export const mutations = {
 export const actions = {
   async getVotes (context) {
     let currentDate = new Date();
-    var date = currentDate.getDate();
-    var month = currentDate.getMonth();
-    var year = currentDate.getFullYear();
-    var dateString = date + "-" + (month + 1) + "-" + year;
+    let date = currentDate.getDate();
+    let month = currentDate.getMonth();
+    let year = currentDate.getFullYear();
+    let dateString = date + "-" + (month + 1) + "-" + year;
 
+    // Set current date
     context.commit('setValue', ['currentDate', dateString]);
 
     firebase.initializeApp(config);
@@ -94,7 +94,7 @@ export const actions = {
       context.commit("setValue", ['aircon3', aircon3]);
     });
 
-    // Get todays votes
+    // Set todays votes
     db.collection("votes").where('date', '==', context.state.currentDate).onSnapshot(snapshot => {
       const votes = [];
 
@@ -108,7 +108,7 @@ export const actions = {
       context.commit("setValue", ['votes', votes]);
     });
 
-    // Get desk names
+    // Set desk names
     db.collection("desks").onSnapshot(snapshot => {
       const desks = [];
 
@@ -123,36 +123,44 @@ export const actions = {
     });
   },
   async weatherBalloon ({ commit }) {
-    var key = '7cfeac2222e6f542eb12905cf4510851';
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=Edinburgh&appid=' + key).then(function(resp) { return resp.json() }) // Convert data to json
+    // Openweather api key
+    const key = '7cfeac2222e6f542eb12905cf4510851';
+
+    // Get temperature
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=Edinburgh&appid=' + key)
+    .then(function(resp) {
+      return resp.json(); // Convert data to json
+    })
     .then(function(data) {
-      var celcius = Math.round(parseFloat(data.main.temp)-273.15);
+      // Set temperature
+      let celcius = Math.round(parseFloat(data.main.temp)-273.15);
       commit('setValue', ['currentTemp', celcius]);
 
+      // Set weather icon
       let weatherIcon = data.weather[0].main;
 
+      // Check if beer hour
       const currentDate = new Date();
 
-      if(currentDate.getDay() == 5 && currentDate.getHours() >= 16){
+      if(currentDate.getDay() == 5 && currentDate.getHours() >= 16) {
         weatherIcon = "Beer";
       }
-
       commit('setValue', ['weatherIcon', weatherIcon]);
 
+      // Set weather overlay colour
       let colour = '#00c4ff';
 
-      if(celcius > 0){
+      if(celcius > 0) {
         colour = '#00c4ff';
       }
-      if(celcius > 10){
+      if(celcius > 10) {
         colour = '#FFB347';
       }
-      if(celcius > 18){
+      if(celcius > 18) {
         colour = '#FF6961';
       }
-
       commit('setValue', ['tempColour', colour]);
-    })
+    });
   }
 }
 
